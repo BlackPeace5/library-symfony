@@ -1,0 +1,44 @@
+{% extends 'books/base.html.twig' %}
+{% block title %} {{ title }} {% endblock %}
+{% block body %}
+
+    <div class="container-field">
+        <div class="row no-gutters">
+            <div class="col 12 text-center mt-5">
+                <a href="{{ path('add_book') }}" class="btn btn-success">Добавить книгу</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-field">
+        <div class="row no-gutters">
+            <div class="col-md-12">
+                <h2>Список книг</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Название</th>
+                            <th scope="col">Автор</th>
+                            <th scope="col">Год</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for book in books %}
+                        <tr>
+                                <td scope="row">{{ book.id }}</td>
+                                <td>{{ book.title }}</td>
+                                <td>{{ book.author }}</td>
+                                <td>{{ book.year | date('Y') }}</td>
+                                <td><a href="{{ path('update_book', {'id': book.id}) }}"
+                                   class="btn btn-link">Редактировать</a>
+                                </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
