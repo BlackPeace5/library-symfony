@@ -42,6 +42,12 @@ class BooksType extends AbstractType
         ;
     }
 
+
+    /**
+     * @param int $min
+     * @param string $max
+     * @return array
+     */
     private function getYears($min, $max='current'): array
     {
         $years = range($min, ($max === 'current' ? date('Y-m-d') : $max));
