@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class BaseController extends AbstractController
 {
-    public function renderDefault()
+    public function renderDefault():array
     {
         return [
             'title' => 'Главная страница'

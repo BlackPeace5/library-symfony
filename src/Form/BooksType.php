@@ -12,7 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class BooksType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): self
     {
         $builder
             ->add('title', TextType::class, array(
@@ -42,14 +42,14 @@ class BooksType extends AbstractType
         ;
     }
 
-    private function getYears($min, $max='current') : array
+    private function getYears($min, $max='current'): array
     {
         $years = range($min, ($max === 'current' ? date('Y-m-d') : $max));
 
         return array_combine($years, $years);
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): array
     {
         $resolver->setDefaults([
             'data_class' => Books::class,

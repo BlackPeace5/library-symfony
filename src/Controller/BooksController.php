@@ -14,6 +14,7 @@ class BooksController extends BaseController
 {
     /**
      * @Route("books/", name="books")
+     * @return Response
      */
     public function index(): Response
     {
@@ -32,7 +33,7 @@ class BooksController extends BaseController
     * @return RedirectResponse|Response
     */
 
-    public function addBook(Request $request)
+    public function addBook(Request $request): Response
     {
         $em = $this->getDoctrine()->getManager();
         $book = new Books();
@@ -57,7 +58,7 @@ class BooksController extends BaseController
      * @param Request $request
      * @return RedirectResponse|Response
      */
-    public function updateBook(int $id, Request $request)
+    public function updateBook(int $id, Request $request): Response
     {
         $em = $this->getDoctrine()->getManager();
         $book = $this->getDoctrine()->getRepository(Books::class)->find($id);
