@@ -12,7 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class BooksType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): self
+    public function buildForm(FormBuilderInterface $builder, array $options):void
     {
         $builder
             ->add('title', TextType::class, array(
@@ -55,7 +55,7 @@ class BooksType extends AbstractType
         return array_combine($years, $years);
     }
 
-    public function configureOptions(OptionsResolver $resolver): array
+    public function configureOptions(OptionsResolver $resolver):void
     {
         $resolver->setDefaults([
             'data_class' => Books::class,

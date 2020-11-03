@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\BooksRepository;
 use Doctrine\ORM\Mapping as ORM;
+use mysql_xdevapi\Exception;
 
 /**
  * @ORM\Entity(repositoryClass=BooksRepository::class)
@@ -44,9 +45,13 @@ class Books
 
     public function setTitle(string $title): self
     {
-        $this->title = $title;
+        if(!is_null($title))
+        {
+            $this->title = $title;
 
-        return $this;
+            return $this;
+        }
+        throw new Exception("Title can't be null");
     }
 
     public function getAuthor(): ?string
@@ -56,9 +61,13 @@ class Books
 
     public function setAuthor(string $author): self
     {
-        $this->author = $author;
+        if(!is_null($author))
+        {
+            $this->author = $author;
 
-        return $this;
+            return $this;
+        }
+        throw new Exception("Author can't be null");
     }
 
     public function getYear(): ?\DateTimeInterface
