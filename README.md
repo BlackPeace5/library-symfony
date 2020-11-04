@@ -13,9 +13,9 @@ Composer >= 2.0
 5) Выполняем команду 
 composer install
 6) Выполняем команду для создания бд 
-bin/console doctrine:database:create
+php bin/console doctrine:database:create
 7) Выполняем команду для создания таблиц и т.д 
-bin/console doctrine:migrations:migrate
+php bin/console doctrine:migrations:migrate
 8) Запускаем сервер командой 
 symfony server:start
 9) В браузере открываем сайт по адресу 127.0.0.1:8000
